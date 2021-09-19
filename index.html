@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Clock UI</title>
+  <style>
+      body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: #9E9FB5;
+    height: 80vh;
+}
+.box-main{
+    width: 200px;
+    height: 200px;
+    background: #F4C2FF;
+    border-radius: 200px;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+#needle_m{
+    width: 15px;
+    height: 100%;
+    border-radius:40px;
+    position: absolute;
+}
+#needle_m .min{
+    height: 45%;
+    background: #BA3CD7;
+    border-radius: 40px;
+}
+#needle_h{
+    width: 20px;
+    height: 100%;
+    border-radius:40px;
+    position: absolute;
+}
+#needle_h .hour{
+    height:40%;
+    background: #5E0A71;
+    border-radius: 40px;
+    
+}
+#needle_s{
+    width: 12px;
+    height: 100%;
+    border-radius:40px;
+    position: absolute;
+}
+#needle_s .sec{
+    height:50%;
+    background: #CAA3D3;
+    border-radius: 40px;
+}
+.box2{
+    background: #7F6285;
+    border-radius:40px;
+    padding:30px;
+    font-size: 25px;
+    color: wheat;
+}
+.pix1{
+    position: absolute;
+    border-radius: 10px;
+    animation: rot1 6s linear 0s infinite normal;
+}
+#box_empty1{
+    height:20%;
+}
+#box_empty2{
+    height:15%;
+}
+#box_empty3{
+    height:10%;
+}
+.box_design{
+    width: 180px;
+    height: 180px;
+    background: #F4C2FF;
+    position: absolute;
+    transform: translateX(-44px);
+    border-radius: 40px;
+}
+.deg2{
+    transform: translateX(-44px) rotateZ(45deg);
+}
+@keyframes rot1{
+    0%{transform: translate(60px,120px); rotateZ(0deg);
+    }
+    100%{transform: translate(60px,120px) rotateZ(360deg);}
+}
+  </style>
+</head>
+
+<body>
+  <div class="box_design"></div>
+  <div class="box_design deg2"></div>
+  <div class="box-main">
+      
+      <div id="needle_h">
+          <div id="box_empty1"></div>
+          <div class="hour"></div>
+      </div>
+      <div id="needle_m">
+          <div id="box_empty2"></div>
+          <div class="min"></div>
+      </div>
+      <div id="needle_s">
+          <div id="box_empty3"></div>
+          <div class="sec"></div>
+      
+      </div>
+  </div>
+  <div class="box2">
+      <div id="hrs"></div>
+      <div id="minutes"></div>
+      <div id="seconds"></div>
+  </div>
+  <div class="box2 pix1"></div>
+  
+  <!-- Project -->
+  <script>
+      function setTime(){
+var date= new Date();
+var sec= date.getSeconds();
+var min= date.getMinutes();
+var hour= date.getHours();
+document.getElementById("needle_m").style.transform= "rotateZ("+ min*6 +"deg)";
+document.getElementById("needle_h").style.transform= "rotateZ("+ ((hour+(0.01*min*100/60))*30) +"deg)";
+document.getElementById("needle_s").style.transform= "rotateZ("+ sec*6 +"deg)";
+
+document.getElementById("hrs").innerHTML=hour;
+document.getElementById("minutes").innerHTML=min;
+document.getElementById("seconds").innerHTML=sec;
+}
+setInterval(setTime,100);
+  </script>
+</body>
+</html>
