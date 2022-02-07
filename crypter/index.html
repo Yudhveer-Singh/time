@@ -1,1 +1,47 @@
-ok
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#49599b">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <header>
+      Crypter
+   </header>
+   <div id="in">
+   <div id="greet"></div>
+  <input id="input" type="text" placeholder="Enter Plain/Cipher Text Here">
+  <button onclick="reset()" id="reset" class="material-icons">refresh</button>
+   </div>
+  <br>
+  <span>
+  <button onclick="enc_in()" id="enc" style="border-top-left-radius: 20px">enc1</button>
+  <button onclick="dec_in()" id="dec" style="border-top-right-radius: 20px;">dec1</button>
+  <br />
+  <button onclick="enc_in(num)" id="enc">enc2</button>
+  <button onclick="dec_in(num)" id="dec">dec2</button>
+  <br />
+  <button onclick="enc_in(upper)" id="enc">enc3</button>
+  <button onclick="dec_in(upper)" id="dec">dec3</button>
+  <br />
+  <button onclick="enc_in(lower)" id="enc" style="border-bottom-left-radius: 20px;">enc4</button>
+  <button onclick="dec_in(lower)" id="dec" style="border-bottom-right-radius: 20px;">dec4</button>
+  </span>
+  <br />
+  <p id="output">OUTPUT</p>
+  <!-- Project -->
+  <script src="crypto.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
