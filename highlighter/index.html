@@ -1,1 +1,209 @@
-<!--to be uploaded-->
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title></title>
+   <link id="theme_link" rel="stylesheet" href="styles/default.min.css">
+   <script src="highlight.min.js"></script>
+   <script src="jquery.min.js"></script>
+   <script>
+      hljs.initHighlighting();
+      //highlightAll();
+   </script>
+   <link rel="stylesheet" href="clay.css">
+<style>
+:root{
+   --red: #ff80ab;
+}
+body{
+   margin:0;
+}
+.input_sec{
+   margin: 16px 16px 0 16px;
+   padding: 0;
+   flex: 1;
+}
+#in{
+   background: var(--red);
+   width: 84%;
+   height: 300px;
+   padding: 8%;
+   border: 0;
+   outline: none;
+}
+.control{
+   margin: 32px 0 0 0;
+   width: 84%;
+   padding: 8%;
+   background: #e2f6ff;
+}
+pre{
+   margin: 32px 16px;
+   padding:0;
+   flex: 1;
+}
+#code{
+   margin: 0;
+   width: 84%;
+   padding: 8%;
+   background: #ffb2ff;
+   word-wrap: break-word;
+   overflow: scroll;
+}
+#run{
+   background: #c94fc7;
+   color: white;
+   border: 0;
+   padding: 16px;
+   text-transform: uppercase;
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.20), inset 2px 2px 5px rgba(256,256,256,0.30), inset -3px -3px 5px rgba(0,0,0,0.4);
+   transition-duration: 0.08s;
+   user-select: none;
+}
+#run:hover,
+#theme:hover,
+#lang:hover{
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.20), inset -2px -2px 5px rgba(256,256,256,0.30), inset 3px 3px 5px rgba(0,0,0,0.4);
+}
+#theme{
+   outline: 0;
+   padding: 16px;
+   background: #6F79ED;
+   margin: 4px 2px;
+   color: white;
+   text-transform: uppercase;
+   border: none;
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.20), inset 2px 2px 5px rgba(256,256,256,0.30), inset -3px -3px 5px rgba(0,0,0,0.4);
+   user-select: none;
+}
+#lang{
+   outline: 0;
+   padding: 16px;
+   background: #64dd17;
+   margin: 4px 2px;
+   color: white;
+   text-transform: uppercase;
+   border: none;
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.20), inset 2px 2px 5px rgba(256,256,256,0.30), inset -3px -3px 5px rgba(0,0,0,0.4);
+   user-select: none;
+}
+@media screen and (min-width:700px){
+   body{
+      display: flex;
+   }
+   pre{
+      margin: 0 16px;
+   }
+  #code{
+      height: 468px;
+   }
+   #code,
+   #in,
+   .control{
+      padding:36px;
+   }
+}
+</style>
+</head>
+<body id="body">
+<section class="input_sec">
+   <textarea id="in" class="clay" placeholder="/**
+  * ENTER YOUR CODE HERE
+  *
+  * This page supports
+  * -> 23 languages with
+  * -> 20 different themes
+  *
+  */"></textarea>
+   <div class="control clay">
+      <button id="run" class="clay">run</button>
+      <select id="theme" class="clay">
+         <option>codeschool</option>
+         <option>colors</option>
+         <option>dark</option>
+         <option>default-dark</option>
+         <option>default-light</option>
+         <option>default</option>
+         <option>dracula</option>
+         <option>edge-dark</option>
+         <option>edge-light</option>
+         <option selected>github</option>
+         <option>google-dark</option>
+         <option>google-light</option>
+         <option>material-darker</option>
+         <option>material-lighter</option>
+         <option>material</option>
+         <option>ocean</option>
+         <option>one-light</option>
+         <option>onedark</option>
+         <option>vs</option>
+         <option>xcode</option>
+      </select>
+      <select id="lang" class="clay">
+         <option>bash</option>
+         <option>c</option>
+         <option>c#</option>
+         <option>c++</option>
+         <option>css</option>
+         <option>go</option>
+         <option>html,xml</option>
+         <option>json</option>
+         <option>java</option>
+         <option selected>javascript</option>
+         <option>kotlin</option>
+         <option>less</option>
+         <option>php</option>
+         <option>perl</option>
+         <option>python</option>
+         <option>r</option>
+         <option>ruby</option>
+         <option>rust</option>
+         <option>scss</option>
+         <option>sql</option>
+         <option>swift</option>
+         <option>typescript</option>
+         <option>yaml</option>
+      </select>
+   </div>
+</section>
+<pre>
+   <code id="code" class="clay">
+   #include &lt;stdio.h&gt;
+   void main(){
+      printf("Hello World");
+      return 0;
+   }
+   </code>
+</pre>
+<script>
+$('#run').click(function(){
+   let v=document.getElementById("in").value;
+   $('#code').text(v);
+   hljs.initHighlighting();
+});
+   //hljs.initHighlighting();
+$('#theme').change(function (){
+   var select=document.getElementById('theme');
+   var theme=select.options[select.selectedIndex].text;
+   $('theme_link').empty();
+   $('head').append('<link rel="stylesheet" href="styles/'+theme+'.min.css">')
+});
+$('#lang').change(function (){
+   var select=document.getElementById('lang');
+   var lang=select.options[select.selectedIndex].text;
+   $('#code').attr("class","clay "+lang);
+   hljs.initHighlighting();
+   //$('head').append('<link rel="stylesheet" href="styles/'+theme+'.min.css">')
+});
+console.log(window.innerWidth);
+</script>
+<!--<script src="c.min.js"></script>-->
+<!--<script>
+   document.querySelectorAll('.code').forEach(let el=>{
+      hljs.highlightElement(el);
+   });
+</script>-->
+</body>
+</html>
