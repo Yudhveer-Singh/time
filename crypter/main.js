@@ -18,7 +18,7 @@ if(localStorage.getItem("name")=="" || localStorage.getItem("name")==null){
 if(params.get('n')!==null){
    var na=dec(params.get('n'));
    var name=", "+na;
-   localStorage.setItem("name",name);
+   localStorage.setItem("name",na);
 }
 var date=new Date();
 var hrs=date.getHours();
