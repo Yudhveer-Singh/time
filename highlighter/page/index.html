@@ -1,1 +1,190 @@
-/*to be uploaded*/
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title></title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+:root{
+  /*red*/
+  --body_back: #ffedef;
+  --main_color: #f3989b;
+  --main_light: #f8c1c3;
+  --header: #d0181e;
+  --main_dark: #8b1014;
+  --badge: var(--header);
+  /*orange*/
+  /*--body_back: #FFF4E9;
+  --main_color: #FFB069;
+  --main_light: #FFCEA3;
+  --header: #DF6900;
+  --main_dark: #9D4A01;
+  --badge: var(--header);*/
+  /*purple*/
+  /*--body_back: #ffe8ff;
+  --main_color: #ec97f9;
+  --main_light:#ffb2ff;
+  --header: #b64fc8;
+  --main_dark: #863896;
+  --badge: var(--header);*/
+}
+body{
+   margin: 0;
+}
+header{
+    background: var(--header);
+    height: auto;
+    color: white;
+    font-size: 28px;
+    font-family: "Architects Daughter",vardana;
+    padding: 20px 60px 20px 60px;
+    border-radius: 0 0 16px 16px;
+    letter-spacing: normal;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+pre{
+   margin: 32px 72px;
+   padding:0;
+   flex: 1;
+}
+#code{
+   margin: 0;
+   width: auto;
+   padding: 40px 56px;
+   background: white;/*#e2f6ff;*/
+   word-wrap: break-word;
+   border-radius: 16px;
+   overflow: scroll;
+   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+:root{
+   --clay-shadow-inset-primary: -8px -8px 16px 0 rgba(0,0,0,0.25);
+   --clay-shadow-inset-secondary: 8px 8px 16px 0 rgba(256,256,256,0.25);
+}
+.cllay{
+   background:var(--clay-background,rgba(0,0,0,.005));
+   border-radius:var(--clay-border-radius,32px);
+   box-shadow:var(--clay-shadow-outset,8px 8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2))}
+/*# sourceMappingURL=clay.css.map */
+#content{
+    font-size: 13px;
+    font-style: monospace;
+    margin: 10px;
+    padding: 10px;
+    display:flex;
+    justify-content: center;
+}
+#content_card{
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  font-family: monospace;
+  padding:24px;
+  max-width: /*fit-content;*/;
+  min-width: 600px;
+  width: auto;
+  min-height: 160px;
+  margin: 16px auto 0 auto;
+}
+#subcontent{
+  padding: 20px;
+  transform: translateY(-80px);
+  border-radius: 8px;
+  background: var(--body_back);
+  color: var(--header);
+  overflow: visible;
+}
+#subcontent::before{
+  content: "";
+  width:20px;
+  height:20px;
+  background: transparent;
+  position:absolute;
+  border-radius: 90px;
+  transform: translate(-40px,20px);
+  box-shadow: 8px 8px var(--body_back);
+}
+#subcontent::after{
+  content: "";
+  width:20px;
+  height:20px;
+  background: transparent;
+  position:absolute;
+  top:0;
+  right:0;
+  border-radius: 90px;
+  transform: translate(20px,40px);
+  box-shadow: -8px 8px var(--body_back);
+}
+#content_card ul li button{
+  margin:0 auto;
+}
+#content_card #div{
+  background: var(--header);
+  font-size: 20px;
+  width:100px;
+  color: white;
+  font-family: 'ubuntu',Courgette, cursive;
+  padding: 6px 30px 6px 30px;
+  transform: translateX(-34px);
+  border-radius: 10px 10px 10px 0;
+  margin-bottom: 16px;
+}
+#content_card #div::after{
+  content:"";
+  width: 10px;
+  height: 20px;
+  background: var(--main_dark);
+  position: absolute;
+  left:0;
+  transform: translateY(30.6px);/*36px*/
+  border-radius: 10px 0 0 10px;
+}
+#content_card #div::before{
+  content:"";
+  width: 10px;
+  height: 20px;
+  background: var(--header);
+  position: absolute;
+  left:0;
+  transform: translateY(20px);/*26*/
+}
+
+</style>
+<link rel="stylesheet" href="xcode.min.css">
+<script src="highlight.min.js"></script>
+<script src="jquery.min.js"></script>
+<body>
+<header id="header">
+   Name
+</header>
+<pre>
+   <code id="code" class="clay">
+#include &lt;stdio.h&gt;
+void main(){
+   printf("Hello World");
+   return 0;
+}
+   </code>
+</pre>
+<section id="content">
+<section id="content_card">
+<div id="div">OUTPUT</div>
+<span>iihiprintf</span>
+</section>
+</section>
+<script>
+/*
+var params = new window.URLSearchParams(window.location.search);
+$('header').html(param.get('name'));
+$('.code').text(param,get('code'));
+$('#content_card span').text(param.get('out'));
+*/
+   hljs.initHighlighting();
+</script>
+</body>
+</html>
