@@ -5,6 +5,7 @@
    <meta charset="UTF-8">
    <title></title>
 </head>
+<link id="theme_link" rel="stylesheet" href="default.min.css">
 <style>
 @import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
@@ -59,8 +60,9 @@ pre{
    padding: 40px 56px;
    background: white;/*#e2f6ff;*/
    word-wrap: break-word;
+   font-weight: 540;
    border-radius: 16px;
-   font-size: 15px;
+   font-size: 16px;
    overflow: scroll;
    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
@@ -85,6 +87,7 @@ pre{
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
   border-radius: 10px;
   font-family: monospace;
+  font-weight: 700;
   padding:24px;
   max-width: /*fit-content;*/;
   min-width: 480px;
@@ -155,7 +158,6 @@ pre{
   left:0;
   transform: translateY(20px);/*26*/
 }
-
 </style>
 <link rel="stylesheet" href="xcode.min.css">
 <script src="highlight.min.js"></script>
@@ -165,7 +167,7 @@ pre{
    Name
 </header>
 <pre>
-   <code id="code" class="clay">
+   <code id="code" class="clay c">
 #include &lt;stdio.h&gt;
 void main(){
    printf("Hello World");
