@@ -42,8 +42,9 @@ header{
     color: white;
     font-size: 28px;
     font-family: "Architects Daughter",vardana;
-    padding: 20px 60px 20px 60px;
+    padding: 32px 60px 20px 60px;
     border-radius: 0 0 16px 16px;
+    margin: 0 32px 0 32px;
     letter-spacing: normal;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
@@ -85,9 +86,9 @@ pre{
   font-family: monospace;
   padding:24px;
   max-width: /*fit-content;*/;
-  min-width: 600px;
+  min-width: 480px;
   width: auto;
-  min-height: 160px;
+  min-height: 136px;
   margin: 16px auto 0 auto;
 }
 #subcontent{
@@ -179,9 +180,9 @@ void main(){
 </section>
 <script>
 var params = new window.URLSearchParams(window.location.search);
-$('header').html(param.get('name'));
-$('.code').text(param.get('code'));
-$('#content_card span').text(param.get('out'));
+$('header').html(params.get('name'));
+$('#code').text(params.get('code'));
+$('#content_card span').text(params.get('out'));
 
    hljs.initHighlighting();
 </script>
