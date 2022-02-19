@@ -182,7 +182,7 @@ void main(){
 var params = new window.URLSearchParams(window.location.search);
 $('header').html(params.get('name'));
 $('#code').text(params.get('code'));
-$('#content_card span').text(params.get('out'));
+$('#content_card span').html(params.get('out'));
 
    hljs.initHighlighting();
 </script>
