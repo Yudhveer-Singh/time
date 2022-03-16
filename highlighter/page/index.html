@@ -14,29 +14,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,500&display=swap');
 :root{
   /*red*/
-  --body_back: #ffedef;
-  --main_color: #f3989b;
-  --main_light: #f8c1c3;
   --header: #d0181e;
   --main_dark: #8b1014;
-  --badge: var(--header);
   /*orange*/
-  /*--body_back: #FFF4E9;
-  --main_color: #FFB069;
-  --main_light: #FFCEA3;
-  --header: #DF6900;
-  --main_dark: #9D4A01;
-  --badge: var(--header);*/
+  /*--header: #DF6900;
+  --main_dark: #9D4A01;*/
   /*purple*/
-  /*--body_back: #ffe8ff;
-  --main_color: #ec97f9;
-  --main_light:#ffb2ff;
-  --header: #b64fc8;
-  --main_dark: #863896;
-  --badge: var(--header);*/
+  /*--header: #b64fc8;
+  --main_dark: #863896;*/
 }
 body{
    margin: 0;
+   /*min-height: 100vh;
+   filter: grayscale(100%);*/
 }
 header{
     background: var(--header);
@@ -93,6 +83,7 @@ pre{
   max-width: /*fit-content;*/;
   min-width: 480px;
   width: auto;
+  background: white;
   min-height: 136px;
   margin: 16px auto 0 auto;
 }
@@ -159,6 +150,27 @@ pre{
   left:0;
   transform: translateY(20px);/*26*/
 }
+.clay{
+   background:var(--clay-background,rgba(0,0,0,.005));
+   border-radius:var(--clay-border-radius,32px);
+   box-shadow:var(--clay-shadow-outset,8px 8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-primary,-8px -8px 16px 0 rgba(0,0,0,.25)),inset var(--clay-shadow-inset-secondary,8px 8px 16px 0 hsla(0,0%,100%,.2));
+}
+
+footer{
+   width: auto;
+   position: fixed;
+   padding: 14px 18px;
+   border-radius: 100px;
+   bottom: 12px;
+   right: 12px;
+   text-align: right;
+   background: var(--header);
+   font-family: 'ubuntu',vardana;
+   color:white;
+   font-size: 18px;
+   box-shadow: 5px 5px 7px rgba(0,0,0,0.20), inset 2px 2px 5px rgba(256,256,256,0.30), inset -3px -3px 5px rgba(0,0,0,0.4);
+   
+}
 </style>
 <link rel="stylesheet" href="xcode.min.css">
 <script src="highlight.min.js"></script>
@@ -179,16 +191,39 @@ void main(){
 <section id="content">
 <section id="content_card">
 <div id="div">OUTPUT</div>
-<span>iihiprintf</span>
+<span>OUTPUT</span>
 </section>
 </section>
+<footer>
+   PAGE <span>2</span>
+</footer>
 <script>
 var params = new window.URLSearchParams(window.location.search);
-$('header').html(params.get('name'));
-$('#code').text(params.get('code'));
-$('#content_card span').html(params.get('out'));
-
+if(params.get('name')!=null){
+   $('header').html(params.get('name'));
+}
+if(params.get('code')!=null){
+   $('#code').text(params.get('code'));
+}
+if(params.get('out')!= null){
+   $('#content_card span').html(params.get('out'));
+}
+if(params.get('page')!=null){
+   $("footer span").text(params.get('page'));
+}
+if(params.get('bw')!=null){
+   $("body").css({
+      "min-height":"100vh",
+      "filter":"grayscale(100%)"
+   });
+}
    hljs.initHighlighting();
+function bw(){
+   $("body").css({
+      "min-height":"100vh",
+      "filter":"grayscale(100%)"
+   });
+}
 </script>
 </body>
 </html>
